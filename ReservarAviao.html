@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reservar viagem</title>
+    <link rel="icon" href="Fotosusadas/aviaoLogo.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="styleaviao.css" />
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+			const urlParams = new URLSearchParams(window.location.search);
+			const destino = urlParams.get('destino');
+			document.getElementById("destino").value = destino;
+		});
+
+		function submeter(){
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/~a035590/action.php/reserva", true);
+			xhr.setRequestHeader('Content-Type', 'application/json');
+			xhr.send(JSON.stringify({
+				destino: document.getElementById("destino").value,
+				start_date: document.getElementById("start_date").value,
+				end_date:document.getElementById("end_date").value,
+				classe: document.getElementById("classe").value,
+				n_pessoas: document.getElementById("n_pessoas").value,
+				n_adultos: document.getElementById("n_adultos").value,
+				n_criancas: document.getElementById("n_criancas").value,
+			}));
+			window.location.href = '/~a035590/Trabalho/Viagens.html';
+		}
+	</script>
+</head>
+<body>
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="booking-cta">
+							<h1>Faça aqui a sua reserva</h1>
+							<p>Aproveite os nossos destinos, e reserve hoje umas férias para o seu destino de eleição
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-pull-7">
+						<div class="booking-form">
+								<div class="form-group">
+									<span class="form-label">O seu destino:</span>
+									<input class="form-control" id="destino" type="text" placeholder="Introduza o destino que pretende" disabled>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<span class="form-label">Data de Partida</span>
+											<input class="form-control" type="date" required id="start_date">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<span class="form-label">Regresso</span>
+											<input class="form-control" type="date" required id="end_date">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="form-group">
+											<span class="form-label">Nº de Pessoas:</span>
+											<select class="form-control" id="n_pessoas">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<span class="form-label">Nº de Adultos</span>
+											<select class="form-control" id="n_adultos">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>3+</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<span class="form-label">Nº de Crianças</span>
+											<select class="form-control" id="n_criancas">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3+</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<span class="form-label">Classe</span>
+											<select class="form-control" id="classe">
+												<option>Económica</option>
+												<option>Executiva</option>
+												<option>Primeira Classe</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-btn">
+									<button onclick="submeter();" class="submit-btn">Reservar</button>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

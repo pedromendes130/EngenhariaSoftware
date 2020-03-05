@@ -1,0 +1,97 @@
+.cabecalho {
+    background-color: #cae4db;
+    display: flex;
+    text-align: right;
+}
+
+.viajar{
+    text-align: left;
+}
+
+.login{
+    text-align: right;
+}
+
+.imagem {
+    width: 100%;
+    background-image: url("fotosusadas/aviao.jpg");
+    text-align: center;
+}
+
+.oportunidade{
+    text-align:center;
+}
+
+.tabela {
+    text-align: center;
+}
+
+.espacolateral {
+    margin-left: 250px;
+}
+
+.titulomapa{
+    margin-top: 30px;
+}
+
+
+.innerviagem {
+    width: auto;
+    max-width: 300px;
+    float: left;
+    margin-right: 40px;
+}
+
+.imagem {
+    height: 50%;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.reserva {
+    color: white;
+    background-color: #CAE4DB;
+    margin-left: 10%;
+    text-align: center;
+    display: inline-block;
+    bottom: auto;
+    position: absolute;
+    text-decoration: none;
+    margin-left: 100px;
+}
+
+.destinos {
+    margin-top: 37px;
+    margin-left: 880px;
+}
+
+.mapamundo {
+    height: 310px;
+    width: 600px;
+    margin-top: 20px;
+    float: left;
+}
+
+.rowFooter {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer {
+    margin-top: 30px;
+    width: 100%;
+    height: 40%;
+    background-color: #7A9D96;
+}
+
+.frase{
+    position: relative;
+}
+
+
+
+
+
+

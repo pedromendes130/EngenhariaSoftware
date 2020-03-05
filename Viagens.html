@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Viagens </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Fotosusadas/aviaoLogo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="viagens.css">
+    <link rel="stylesheet" href="signUP.html">
+    <link rel="stylesheet" href="login.html">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        function httpGet(theUrl){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false );
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+
+        function logout(){
+            httpGet("/~a035590/action.php/securelogout");
+            window.location.href = '/~a035590/Trabalho/Viagens.html';
+        }
+
+        function escondeReservas(){
+            Array.from(document.getElementsByClassName("reserva"))
+                .forEach(btn => btn.style.display = "none");
+        }
+
+		document.addEventListener("DOMContentLoaded", function(){
+			const current_user =  JSON.parse(httpGet("/~a035590/action.php/currentuser"));
+            if(current_user.isLoggedIn){
+                document.getElementById("login").style.display = "none";
+                document.getElementById("registo").style.display = "none";
+                document.getElementById("mensagem").innerHTML  = "Bem vindo "+current_user.username;
+            }else{
+                document.getElementById("logout").style.display = "none";
+                escondeReservas();
+            }
+		});
+	</script>
+
+</head>
+<body>
+
+    <div class="cabecalho">
+        <table class="table">
+            <tr>
+                <td class="viajar">
+                    <h4 id="mensagem"> Venha viajar connosco!</h4>
+                </td>
+                <td>
+                    <a href="Login.html" id="login">Login</a>
+                    <a href="signUP.html" id="registo">Registar</a>
+                    <button onclick="logout();" id="logout">Logout</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="oportunidade">
+        <h3>Oportunidades únicas para as suas férias!</h3>
+    </div>
+
+    <table class="espacolateral">
+        <tr>
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/roma.jpg" class="imagem">
+                    <div class="frase">
+                        <p><b>Itália</b></p>
+                        <p>Desfrute da magnífica história romana que este destino oferece. Arcos triunfais, colunas honoríficas, estátuas de imperadores e muito mais!</p>
+                    </div>
+                    <a class="reserva" href="ReservarAviao.html?destino=Italia">Reservar já</a>
+                </div>
+            </td>
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/brasil.jpg" class="imagem">
+                    <div class="frase">
+                        <p><b>Brasil</b></p>
+                        <p>Não é só o tempo quente e as praias enormes que fazem do Brasil o maravilhoso país que ele é. Conheça todas as relíquias deste país e deslumbre-se na viagem!</p>
+                    </div>
+                    <a class="reserva" href="ReservarAviao.html?destino=Brasil">Reservar já</a>
+                </div>
+            </td>
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/portugal.jpg" class="imagem">
+                    <div class="frase">
+                        <p><b>Portugal</b></p>
+                        <p>Um país pequeno mas com muito para oferecer! Aventure-se e conheça, connosco, tudo de bom que Portugal tem para dar! Venha connosco e desfrute!</p>
+                    </div>
+                    <a class="reserva" href="ReservarAviao.html?destino=Portugal">Reservar já</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/tailandia.jpg" class="imagem">
+                    <div class="frase">
+                        <p><b>Tailandia</b></p>
+                        <p>Paisagens rústicas, ambiente descontraído e templos grandiosos. Esta é sem dúvida um destino a incluir em qualquer viagem. Aventure-se.</p>
+                    </div>
+                    <a class="reserva" href="ReservarAviao.html?destino=Tailandia">Reservar já</a>
+                </div>
+            </td>
+
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/franca.jpg" class="imagem">
+                    <div class="frase">
+                        <p><b>França</b></p>
+                        <p>País que mais recebe turistas no mundo, a França oferece museus maravilhosos, paisagens belíssimas, muito charme e boa comida. Disfrute connosco!</p>
+                    </div>
+                    <a class="reserva" href="ReservarAviao.html?destino=Franca">Reservar já</a>
+                </div>
+            </td>
+
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/espanha.jpg" class="imagem">
+                    <div class="frase">
+                        <p><b>Espanha</b></p>
+                        <p>Não faltam motivos para visitar Espanha. Podemos apreciar a Movida de Madrid, os delírios arquitetonicos em Barcelona, as bonitas cidades de Andaluzia e muito mais!</p>
+                    </div>
+                    <a class="reserva" href="ReservarAviao.html?destino=Espanha">Reservar já</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div>
+        <h1 class="titulomapa espacolateral">Destinos para explorar </h1>
+        <img src="Fotosusadas/mundo.jpg" alt="mundo" class="mapamundo espacolateral" />
+
+        <details class="destinos">
+            <summary>América do Norte</summary>
+            <p>Canadá</p>
+        </details>
+
+        <details class="destinos">
+            <summary>América do Sul</summary>
+            <p>Brasil</p>
+        </details>
+
+        <details class="destinos">
+            <summary>Europa</summary>
+            <p>Portugal</p>
+            <p>Itália</p>
+        </details>
+
+        <details class="destinos">
+            <summary>África</summary>
+            <p>África do Sul</p>
+        </details>
+
+        <details class="destinos">
+            <summary>Ásia</summary>
+            <p>Japão</p>
+        </details>
+
+        <details class="destinos">
+            <summary>Oceania</summary>
+            <p>Austrália</p>
+        </details>
+    </div>
+
+    <table class="espacolateral">
+        <tr>
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/alugarcarros.png" class="imagem"/>
+                        <div class="frase">
+                            <p><b>Carros</b></p>
+                            <p>Voou, alugou! Para poder aproveitar melhor todos os sítios onde quer ir, temos vários carros à sua escolha. Alugue o carro que gosta tanto e usufrua.</p>
+                        </div>
+                        <a class="reserva" href="ReservarCarro.html">Reservar já</a>
+                </div>
+            </td>
+            <td>
+                <div class="innerviagem">
+                    <img src="Fotosusadas/alugarhotel.jpg" class="imagem"/>
+                        <div class="frase">
+                            <p><b>Hóteis</b></p>
+                            <p>Desfrute já dos melhores hóteis que temos para si. O melhor conforto com as melhores vistas! Venha, não perca mais tempo!</p>
+                        </div>
+                        <a class="reserva" href="ReservarHotel.html">Reservar já</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <footer class="footer">
+        <div class="rowFooter">
+            <table class="table">
+                <tr>
+                    <td>
+                        2020 © Viagens. All rights reserved.
+                    </td>
+                    <td>
+                        Siga-nos nas redes sociais:
+                        <a target="_blank" href="https://www.facebook.com/">
+                            <img alt="facebook" src="Fotosusadas/facebook.png" width="18" height="18"></img>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/">
+                            <img alt="twitter" src="Fotosusadas/twitter.png" width="18" height="18"></img>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/">
+                            <img alt="youtube" src="Fotosusadas/youtube.png" width="18" height="18"></img>
+                        </a>
+                        <a target="_blank" href="https://www.linkedin.com/">
+                            <img alt="linkedin" src="Fotosusadas/linkedin.png" width="18" height="18"></img>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/">
+                            <img alt="instagram" src="Fotosusadas/instagram.png" width="18" height="18"></img>
+                        </a>
+                    </td>
+                    <td>
+                        Quer enviar-nos sugestões ou escrever-nos uma reclamação? <a href="https://mail.google.com/mail/u/0/"><p>Clique aqui!</p></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </footer>
+
+</body>
+</html>

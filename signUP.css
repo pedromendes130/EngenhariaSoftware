@@ -1,0 +1,39 @@
+body{
+    font-family: Arial;
+}
+.wrap{
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: #CAE4DB;
+    box-sizing: border-box;
+    padding: 40px;
+    margin-top: 100px;
+}
+
+body > img{
+    position:center;
+}
+
+h2{
+    text-align: center;
+}
+input[type=text], input[type=password], input[type=email]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px,5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted #fff;
+
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+input[type=submit]{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px ;
+    margin-top: 30px;
+    
+}
